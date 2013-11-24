@@ -4,4 +4,7 @@ Patrick: Howard hangout with Mark and I in Mountain View.            Sun Nov 24 
 
 
 
-# OPEN chat.html
+### OPEN chat.html
+
+
+#Status: JK we're offline now
