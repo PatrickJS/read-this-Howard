@@ -24,9 +24,11 @@
     <script>
       angular.module("chat", [
         "firebase"
-      ])
+      ]).config(function($sceProvider) {
+        $sceProvider.enabled(false);
+      })
       .controller('MyController', function($scope, angularFire) {
-        var ref = new Firebase("https://gdi2290.firebaseio-demo.com/");
+        var ref = new Firebase("https://gdi2290.firebaseio.com/chat");
 
         $scope.messages = [];
         $scope.useHacks = false;
