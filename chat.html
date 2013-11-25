@@ -13,7 +13,7 @@
         <div ng-if="msg.body">
           <div ng-if="!msg.useHacks" ng-class="{bgColor: $even == true}">
             <em> {{ msg.from }}</em>: {{ msg.body }}
-            <small style="float:right">{{ msg.date }}</small>
+            <small style="float:right">{{ msg.date | moment }}</small>
           </div>
           <div ng-if="msg.useHacks" ng-class="{bgColor: $even == true}">
             <em> {{ msg.from }}</em>:<span ng-bind-html="msg.body"></span>
@@ -49,11 +49,16 @@
             useHacks: !!$scope.useHacks,
             from: $scope.name,
             body: $scope.msg,
-            date: moment(new Date()).fromNow()
+            date: new Date()
           });
           $scope.msg = "";
           $scope.msg = null;
         };
+      })
+      .filter('moment', function() {
+        return function(text) {
+          return window.moment(text).fromNow()
+        }
       });
     </script>
 
